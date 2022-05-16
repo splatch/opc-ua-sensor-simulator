@@ -32,9 +32,9 @@ async def main():
     # populating our address space
     # server.nodes, contains links to very common nodes like objects and root
     obj_vplc = await server.nodes.objects.add_object(idx, 'vPLC1')
-    var_temperature = await obj_vplc.add_variable(idx, 'temperature', 0)
-    var_pressure = await obj_vplc.add_variable(idx, 'pressure', 0)
-    var_pumpsetting = await obj_vplc.add_variable(idx, 'pumpsetting', 0)
+    var_temperature = await obj_vplc.add_variable(idx, 'temperature', ua.Variant(0.0, ua.VariantType.Double))
+    var_pressure = await obj_vplc.add_variable(idx, 'pressure', ua.Variant(0.0, ua.VariantType.Double))
+    var_pumpsetting = await obj_vplc.add_variable(idx, 'pumpsetting', ua.Variant(0.0, ua.VariantType.String))
 
     # Read Sensor Data from Kaggle
     df = pd.read_csv("sensor.csv")
